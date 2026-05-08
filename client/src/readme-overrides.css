@@ -1,0 +1,160 @@
+/* Map plain marked-rendered HTML inside .readme .md-body to the design's
+   typography. The design prototype hand-built each section with explicit
+   classes (.doc-h1, .doc-p, .code-block, etc.); marked outputs vanilla h1/h2/p
+   so we redo those styles by element selector. */
+
+.readme .md-body h1 {
+  font-family: var(--font-head);
+  font-size: 38px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--ink);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.readme .md-body h2 {
+  font-family: var(--font-head);
+  font-size: 24px;
+  letter-spacing: -0.012em;
+  font-weight: 600;
+  margin: calc(48px * var(--pad)) 0 14px;
+  color: var(--ink);
+  scroll-margin-top: 80px;
+  text-wrap: balance;
+}
+.readme .md-body section:first-child h2 { margin-top: 0; }
+
+.readme .md-body h3 {
+  font-family: var(--font-head);
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 28px 0 8px;
+  color: var(--ink);
+}
+
+.readme .md-body p {
+  margin: 0 0 14px;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.readme .md-body p code,
+.readme .md-body li code,
+.readme .md-body td code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: var(--accent-ink);
+}
+[data-theme="dark"] .readme .md-body p code,
+[data-theme="dark"] .readme .md-body li code,
+[data-theme="dark"] .readme .md-body td code { color: var(--accent); }
+
+.readme .md-body ul,
+.readme .md-body ol {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  color: var(--ink-2);
+}
+.readme .md-body li { margin-bottom: 5px; }
+
+.readme .md-body a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--accent) 40%, transparent);
+}
+[data-theme="dark"] .readme .md-body a { color: var(--accent); }
+
+.readme .md-body pre {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  margin: 14px 0 20px;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  overflow-x: auto;
+}
+[data-theme="dark"] .readme .md-body pre {
+  background: #14141a;
+  border-color: #25252a;
+}
+.readme .md-body pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.readme .md-body blockquote {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 8px;
+  margin: 16px 0 20px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+.readme .md-body blockquote > :first-child { margin-top: 0; }
+.readme .md-body blockquote > :last-child { margin-bottom: 0; }
+
+.readme .md-body table {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--surface);
+  margin: 14px 0 20px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-size: 13px;
+}
+.readme .md-body th,
+.readme .md-body td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+}
+.readme .md-body thead th {
+  background: var(--surface-2);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.readme .md-body tbody tr:last-child td { border-bottom: 0; }
+
+.readme .md-body img { max-width: 100%; }
+
+.readme .md-body hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 32px 0;
+}
+
+/* Centered hero block in the generated header (`<div align="center">`). */
+.readme .md-body div[align="center"] {
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+}
+.readme .md-body div[align="center"] h1 {
+  margin-top: 8px;
+}
+.readme .md-body div[align="center"] img {
+  display: inline-block;
+  margin: 2px 3px;
+}
